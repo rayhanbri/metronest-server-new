@@ -225,7 +225,7 @@ async function run() {
         })
 
         // fetch advertised properties 
-        app.get('/properties/advertised',verifyToken, async (req, res) => {
+        app.get('/properties/advertised',async (req, res) => {
             const result = await propertiesCollection
                 .find({ isAdvertised: true, status: 'verified' })
                 .limit(4)
@@ -397,7 +397,7 @@ async function run() {
         });
 
         //  latest 4 user reviews
-        app.get('/reviews/latest',verifyToken, async (req, res) => {
+        app.get('/reviews/latest',async (req, res) => {
             try {
                 const latestReviews = await reviewsCollection
                     .find()
@@ -715,7 +715,7 @@ run().catch(console.dir);
 
 // Sample route
 app.get('/', (req, res) => {
-    res.send('MetroNest Backend Running');
+    res.send('New Repo is runnin');
 });
 
 app.listen(port, () => {
